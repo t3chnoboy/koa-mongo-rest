@@ -1,6 +1,6 @@
 {
   "name": "koa-mongo-rest",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "generate REST API with koa and mongo",
   "main": "index.js",
   "scripts": {
@@ -27,5 +27,17 @@
   "bugs": {
     "url": "https://github.com/t3chnoboy/koa-mongo-rest/issues"
   },
-  "homepage": "https://github.com/t3chnoboy/koa-mongo-rest"
+  "homepage": "https://github.com/t3chnoboy/koa-mongo-rest",
+  "dependencies": {
+    "mongoose": "~3.8.3"
+  },
+  "devDependencies": {
+    "mocha": "~1.16.2",
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "git://github.com/t3chnoboy/grunt-contrib-coffee.git",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-shell": "~0.6.1",
+    "grunt-concurrent": "~0.4.2",
+    "koa-router": "~2.2.0"
+  }
 }
