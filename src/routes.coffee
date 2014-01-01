@@ -1,20 +1,15 @@
-model =
-  modelName: 'user'
+routes = (app, schema, actions) ->
 
-actions = require './actions'
+    app.get "/#{schema.collectionName}", actions.get
 
-routes = (app) ->
+    app.get "/#{schema.collectionName}/:id", actions.getById
 
-  app.get "/user", actions.get
+    app.delete "/#{schema.collectionName}/:id", actions.deleteById
 
-  app.get "/#{model.modelName}/:id", actions.getById
+    app.put "/#{schema.collectionName}/:id", actions.putToId
 
-  app.delete "/#{model.modelName}/:id", actions.deleteById
+    app.patch "/#{schema.collectionName}/:id", actions.updateById
 
-  app.put "/#{model.modelName}/:id", actions.putToId
-
-  app.patch "/#{model.modelName}/:id", actions.updateById
-
-  app.post "/#{model.modelName}", actions.postToId
+    app.post "/#{schema.collectionName}", actions.postToId
 
 module.exports = routes
