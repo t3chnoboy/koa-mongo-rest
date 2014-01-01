@@ -6,7 +6,7 @@ module.exports = (grunt) ->
       target:
         tasks: ['shell:nodemon', 'watch']
         options:
-          logConcurrentOutput: true
+          logConcurrentOutput: yes
 
     shell:
       nodemon:
@@ -16,11 +16,13 @@ module.exports = (grunt) ->
 
     coffee:
       app:
-        expand: true
+        expand: yes
         cwd: 'src'
         src: ['**/*.coffee']
         dest: 'lib'
         ext: '.js'
+        options:
+          bare: yes
 
     watch:
       app:
