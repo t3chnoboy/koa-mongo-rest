@@ -29,7 +29,8 @@
   },
   "homepage": "https://github.com/t3chnoboy/koa-mongo-rest",
   "dependencies": {
-    "mongoose": "~3.8.3"
+    "mongoose": "~3.8.3",
+    "co-body": "0.0.1"
   },
   "devDependencies": {
     "mocha": "~1.16.2",
@@ -38,6 +39,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-shell": "~0.6.1",
     "grunt-concurrent": "~0.4.2",
-    "koa-router": "~2.2.0"
+    "koa-router": "~2.2.0",
+    "koa": "~0.2.1",
+    "koa-logger": "~1.1.1"
   }
 }
