@@ -33,14 +33,14 @@
     "co-body": "0.0.1"
   },
   "devDependencies": {
-    "mocha": "~1.16.2",
+    "mocha": "~1.17.0",
     "grunt": "~0.4.2",
     "grunt-contrib-coffee": "git://github.com/t3chnoboy/grunt-contrib-coffee.git",
     "grunt-contrib-watch": "~0.5.3",
     "grunt-shell": "~0.6.1",
     "grunt-concurrent": "~0.4.2",
-    "koa-router": "~2.2.0",
-    "koa": "~0.2.1",
-    "koa-logger": "~1.1.1"
+    "koa-router": "~2.3.1",
+    "koa": "~0.3.0",
+    "koa-logger": ">=1.1.1"
   }
 }
