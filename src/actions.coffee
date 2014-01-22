@@ -1,15 +1,17 @@
+parse = require 'co-body'
+
 module.exports =
 
   (model) ->
 
-    get: ->*
+    findAll: ->*
       try
         result = yield model.find(@request.query).exec()
         @body = result
       catch error
         @body = error
 
-    getById: ->*
+    findById: ->*
       try
         result = yield model.findById(@params.id).exec()
         @body = result
@@ -23,23 +25,54 @@ module.exports =
       catch error
         @body = error
 
-    putToId: ->*
+    replaceById: ->*
       try
-        console.log "Putin"
-        @body = "Putin"
-      catch error
-        @body = error
-
-    updateById: ->*
-      try
-        result = yield model.findByIdAndUpdate(@params.id, {$set: @request.query}).exec()
+        yield model.findByIdAndRemove(@params.id).exec()
+        body = yield parse @, limit: '1kb'
+        newDocument = body
+        newDocument._id = @params.id
+        result = yield model.create(newDocument).exec()
         @body = result
       catch error
         @body = error
 
-    postToId: ->*
+    replaceByIdWithQuery: ->*
       try
-        console.log "posting"
-        @body = "posting"
+        yield model.findByIdAndRemove(@params.id).exec()
+        newDocument = @request.query
+        newDocument._id = @params.id
+        result = yield model.create(newDocument).exec()
+        @body = result
+      catch error
+        @body = error
+
+
+    updateById: ->*
+      try
+        body = yield parse @, limit: '1kb'
+        result = yield model.findByIdAndUpdate(@params.id, body).exec()
+        @body = result
+      catch error
+        @body = error
+
+    updateByIdWithQuery: ->*
+      try
+        result = yield model.findByIdAndUpdate(@params.id, @request.query).exec()
+        @body = result
+      catch error
+        @body = error
+
+    create: ->*
+      try
+        body = yield parse @, limit: '1kb'
+        result = yield model.create(body).exec()
+        @body = result
+      catch error
+        @body = error
+
+    createWithQuery: ->*
+      try
+        result = yield model.create(@request.query).exec()
+        @body = result
       catch error
         @body = error
