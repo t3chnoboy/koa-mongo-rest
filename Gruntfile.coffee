@@ -12,7 +12,7 @@ module.exports = (grunt) ->
       nodemon:
         options:
           stdout: true
-        command: 'nodemon --exec node --harmony lib/index.js'
+        command: 'nodemon --exec node --harmony example/example.js'
 
     coffee:
       app:
