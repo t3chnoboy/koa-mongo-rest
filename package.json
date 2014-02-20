@@ -39,8 +39,8 @@
     "grunt-contrib-watch": "~0.5.3",
     "grunt-shell": "~0.6.1",
     "grunt-concurrent": "~0.4.2",
-    "koa-router": "~2.3.1",
-    "koa": "~0.3.0",
+    "koa-router": "~3.0.2",
+    "koa": "~0.5.0",
     "koa-logger": ">=1.1.1"
   }
 }
