@@ -50,3 +50,6 @@ api(app, schema, mongoUrl);
 
 app.listen(process.env.PORT || 5000);
 ```
+
+Live [demo](http://watchlist-koa.herokuapp.com/user)  
+[App consuming api](http://watchlist-webapp.herokuapp.com/#/)
