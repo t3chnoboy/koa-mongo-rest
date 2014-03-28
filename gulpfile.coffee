@@ -1,20 +1,23 @@
 gulp       = require 'gulp'
-coffee     = require 'gulp-coffee'
 nodemon    = require 'gulp-nodemon'
 coffeeES6  = require 'gulp-coffee-es6'
 
 paths =
-  src  : 'src/*.coffee'
+  src  : 'src/**/*.coffee'
   dest : 'lib'
 
 gulp.task 'compile', ->
-  gulp.src paths.server
+  gulp.src paths.src
     .pipe coffeeES6 bare: yes
-    .pipe gulp.dest './'
+    .pipe gulp.dest paths.dest
 
-gulp.task 'server', ->
+  gulp.src 'example/coffee/**/*.coffee'
+    .pipe coffeeES6 bare: yes
+    .pipe gulp.dest 'example'
+
+gulp.task 'example-server', ->
   nodemon
-    script: 'app.js'
+    script: 'example/app.js'
     nodeArgs: ['--harmony']
     ignore: [
       './src/**'
@@ -25,4 +28,4 @@ gulp.task 'server', ->
 gulp.task 'watch', ->
   gulp.watch paths.src, ['compile']
 
-gulp.task 'default', ['compile', 'watch', 'server']
+gulp.task 'default', ['compile', 'watch']

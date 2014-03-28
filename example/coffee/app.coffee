@@ -4,7 +4,7 @@ logger = require 'koa-logger'
 api = require '../lib/index'
 schema = require './schema'
 
-mongoUrl = process.env.MONGOLAB_URL
+mongoUrl = '127.0.0.1:27017'
 
 app = koa()
 app.use logger()
