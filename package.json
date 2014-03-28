@@ -4,7 +4,7 @@
   "description": "generate REST API with koa and mongo",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --harmony"
   },
   "repository": {
     "type": "git",
@@ -29,18 +29,19 @@
   },
   "homepage": "https://github.com/t3chnoboy/koa-mongo-rest",
   "dependencies": {
-    "mongoose": "~3.8.3",
-    "co-body": "0.0.1"
+    "co-body": "0.0.1",
+    "mongoose": "^3.8.8"
   },
   "devDependencies": {
-    "mocha": "~1.17.0",
-    "grunt": "~0.4.2",
-    "grunt-contrib-coffee": "git://github.com/t3chnoboy/grunt-contrib-coffee.git",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-shell": "~0.6.1",
-    "grunt-concurrent": "~0.4.2",
-    "koa-router": "~3.0.2",
-    "koa": "~0.5.0",
-    "koa-logger": ">=1.1.1"
+    "co-mocha": "0.0.2",
+    "coffee-script": "git://github.com/xixixao/coffee-script",
+    "gulp": "^3.6.0",
+    "gulp-coffee-es6": "git://github.com/t3chnoboy/gulp-coffee-es6.git",
+    "gulp-nodemon": "^1.0.2",
+    "koa": "^0.5.2",
+    "koa-logger": "^1.2.0",
+    "koa-router": "^3.1.2",
+    "should": "^3.2.0-beta1",
+    "supertest": "^0.10.0"
   }
 }
