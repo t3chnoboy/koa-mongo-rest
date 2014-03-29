@@ -65,14 +65,16 @@ module.exports =
     create: ->*
       try
         body = yield parse @, limit: '1kb'
-        result = yield model.create(body).exec()
+        result = yield model.create(body)
+        @status = 201
         @body = result
       catch error
         @body = error
 
     createWithQuery: ->*
       try
-        result = yield model.create(@request.query).exec()
+        result = yield model.create(@request.query)
         @body = result
+        @status =  201
       catch error
         @body = error
