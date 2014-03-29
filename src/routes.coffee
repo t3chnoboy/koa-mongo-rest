@@ -1,4 +1,4 @@
-routes = (app, schema, actions) ->
+module.exports = generateRoutes = (app, schema, actions) ->
 
   #CRUD shortcuts
   app.get    "/#{schema.collectionName}/find",         actions.findAll
@@ -22,5 +22,4 @@ routes = (app, schema, actions) ->
 
   app.patch  "/#{schema.collectionName}/:id",          actions.updateById
 
-
-module.exports = routes
+  return
