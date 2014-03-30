@@ -18,12 +18,12 @@ npm install koa-mongo-rest
 
 Require library
 ```javascript
-api = require('koa-mongo-rest');
+var createModel = require('koa-mongo-rest');
 ```
 
 Create schema
 ```javascript
-schema = {
+var schema = {
   schema: {
     email: String,
     name: String,
@@ -38,15 +38,14 @@ schema = {
 
 Create server
 ```javascript
-koa = require('koa');
-router = require('koa-router');
+var koa = require('koa');
+var router = require('koa-router');
 
-mongoUrl = process.env.MONGOLAB_URL;
-app = koa();
-
-app.use(logger());
+var mongoUrl = '127.0.0.1:27017'
+var app = koa();
 app.use(router(app));
-api(app, schema, mongoUrl);
+var model = app.model = createModel(schema, mongoUrl);
+model.generateApi(app);
 
 app.listen(process.env.PORT || 5000);
 ```
