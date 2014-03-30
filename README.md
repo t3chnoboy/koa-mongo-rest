@@ -42,10 +42,18 @@ var koa = require('koa');
 var router = require('koa-router');
 
 var mongoUrl = '127.0.0.1:27017'
+
 var app = koa();
+
+//router is required
 app.use(router(app));
+
+//create mongoose model
+//you can use it to create custom actions
 var model = app.model = createModel(schema, mongoUrl);
-model.generateApi(app);
+
+//add REST routes to your app. Prefix is optional
+model.generateApi(app, '/api');
 
 app.listen(process.env.PORT || 5000);
 ```
