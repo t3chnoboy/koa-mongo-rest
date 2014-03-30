@@ -137,6 +137,14 @@
                 <section class="suite">
                   <h1>POST /:model/:id</h1>
                   <dl>
+                    <dt>should respond with JSON for the updated record</dt>
+                    <dd><pre><code>return request.post('/user/2').send({
+  age: 28
+}).expect(200).expect({
+  name: 'Joff',
+  age: 28,
+  _id: 2
+}).end(done);</code></pre></dd>
                   </dl>
                 </section>
               </dl>
@@ -147,6 +155,12 @@
                 <section class="suite">
                   <h1>DELETE /:model/:id</h1>
                   <dl>
+                    <dt>should respond with JSON for the destroyed record</dt>
+                    <dd><pre><code>return request.del('/user/2').expect(200).expect({
+  name: 'Joff',
+  age: 27,
+  _id: 2
+}).end(done);</code></pre></dd>
                   </dl>
                 </section>
               </dl>
@@ -157,11 +171,30 @@
                 <section class="suite">
                   <h1>PUT /:model</h1>
                   <dl>
+                    <dt>should respond with JSON for the created record</dt>
+                    <dd><pre><code>return request.put('/user').send({
+  name: 'John',
+  age: 26,
+  _id: 5
+}).expect(201).expect({
+  name: 'John',
+  age: 26,
+  _id: 5
+}).end(done);</code></pre></dd>
                   </dl>
                 </section>
                 <section class="suite">
                   <h1>PUT /:model/:id</h1>
                   <dl>
+                    <dt>should return JSON for the replaced record</dt>
+                    <dd><pre><code>return request.put('/user/2').send({
+  name: 'Joseph',
+  age: 37
+}).expect(200).expect({
+  name: 'Joseph',
+  age: 37,
+  _id: 2
+}).end(done);</code></pre></dd>
                   </dl>
                 </section>
               </dl>
@@ -172,6 +205,14 @@
                 <section class="suite">
                   <h1>PATCH /:model/:id</h1>
                   <dl>
+                    <dt>should respond with JSON for the updated record</dt>
+                    <dd><pre><code>return request.patch('/user/2').send({
+  age: 28
+}).expect(200).expect({
+  name: 'Joff',
+  age: 28,
+  _id: 2
+}).end(done);</code></pre></dd>
                   </dl>
                 </section>
               </dl>
@@ -186,6 +227,12 @@
         <section class="suite">
           <h1>createModel(schema, mongoURL)</h1>
           <dl>
+            <dt>should connect to mongoDB and return a mongoose model</dt>
+            <dd><pre><code>var model;
+model = createModel(schema, mongoUrl);
+return model.should.have.property({
+  modelName: 'person'
+});</code></pre></dd>
           </dl>
         </section>
       </dl>

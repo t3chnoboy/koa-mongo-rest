@@ -103,7 +103,7 @@ describe 'REST API', ->
             .end done
 
     describe 'PUT', ->
-      describe.skip 'PUT /:model', ->
+      describe 'PUT /:model', ->
         it 'should respond with JSON for the created record', (done) ->
           request
             .put '/user'
@@ -119,14 +119,13 @@ describe 'REST API', ->
             .end done
 
 
-      describe.skip 'PUT /:model/:id', ->
+      describe 'PUT /:model/:id', ->
         it 'should return JSON for the replaced record', (done) ->
           request
-            .put 'user/2'
+            .put '/user/2'
             .send
               name : 'Joseph'
               age  : 37
-              _id  : 2
             .expect 200
             .expect
               name : 'Joseph'
@@ -134,11 +133,11 @@ describe 'REST API', ->
               _id  : 2
             .end done
 
-    describe.skip 'PATCH', ->
+    describe 'PATCH', ->
       describe 'PATCH /:model/:id', ->
         it 'should respond with JSON for the updated record', (done) ->
           request
-            .patch 'user/2'
+            .patch '/user/2'
             .send
               age : 28
             .expect 200
