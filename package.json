@@ -1,6 +1,6 @@
 {
   "name": "koa-mongo-rest",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "generate REST API with koa and mongo",
   "main": "lib/index.js",
   "scripts": {
