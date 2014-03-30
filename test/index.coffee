@@ -4,7 +4,8 @@ schema =
     age : Number
     _id : Number
   collectionName: 'user'
-  versionKey: no
+  options:
+    versionKey: no
 
 users = [
   name: 'Fronk'
@@ -91,6 +92,7 @@ describe 'REST API', ->
 
 
     describe 'DELETE', ->
+
       describe 'DELETE /:model/:id', ->
         it 'should respond with JSON for the destroyed record', (done) ->
           request
@@ -103,6 +105,7 @@ describe 'REST API', ->
             .end done
 
     describe 'PUT', ->
+
       describe 'PUT /:model', ->
         it 'should respond with JSON for the created record', (done) ->
           request
@@ -134,6 +137,7 @@ describe 'REST API', ->
             .end done
 
     describe 'PATCH', ->
+
       describe 'PATCH /:model/:id', ->
         it 'should respond with JSON for the updated record', (done) ->
           request

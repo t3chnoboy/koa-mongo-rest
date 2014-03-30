@@ -32,7 +32,11 @@ var schema = {
     zipcode: Number,
     lists: Array
   },
-  collectionName: 'user'
+  collectionName: 'user', //this is required
+  //mongoose schema options (optional)
+  options: {
+    versionKey: false
+  }
 };
 ```
 
