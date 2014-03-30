@@ -36,28 +36,10 @@ module.exports =
       catch error
         @body = error
 
-    replaceByIdWithQuery: ->*
-      try
-        yield model.findByIdAndRemove(@params.id).exec()
-        newDocument = @request.query
-        newDocument._id = @params.id
-        result = yield model.create(newDocument).exec()
-        @body = result
-      catch error
-        @body = error
-
-
     updateById: ->*
       try
         body = yield parse @, limit: '1kb'
         result = yield model.findByIdAndUpdate(@params.id, body).exec()
-        @body = result
-      catch error
-        @body = error
-
-    updateByIdWithQuery: ->*
-      try
-        result = yield model.findByIdAndUpdate(@params.id, @request.query).exec()
         @body = result
       catch error
         @body = error
@@ -68,13 +50,5 @@ module.exports =
         result = yield model.create(body)
         @status = 201
         @body = result
-      catch error
-        @body = error
-
-    createWithQuery: ->*
-      try
-        result = yield model.create(@request.query)
-        @body = result
-        @status =  201
       catch error
         @body = error
