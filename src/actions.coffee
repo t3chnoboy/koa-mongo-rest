@@ -31,7 +31,7 @@ module.exports =
         body = yield parse @, limit: '1kb'
         newDocument = body
         newDocument._id = @params.id
-        result = yield model.create(newDocument).exec()
+        result = yield model.create(newDocument)
         @body = result
       catch error
         @body = error
