@@ -6,8 +6,8 @@ createModel = require './model'
 module.exports = (schema, mongoUrl) ->
   model = createModel schema, mongoUrl
   actions = generateActions model
-  model.generateApi = (app) ->
-    generateRoutes app, schema, actions
+  model.generateApi = (app, prefix = '') ->
+    generateRoutes app, schema, actions, prefix
 
   return model
 
