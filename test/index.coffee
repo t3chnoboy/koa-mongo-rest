@@ -76,27 +76,74 @@ describe 'REST API', ->
               _id  : 4
             .end done
 
-        it 'should create a new record'
-
       describe 'POST /:model/:id', ->
-        it 'should respond with JSON for the updated record'
+        it 'should respond with JSON for the updated record', (done) ->
+          request
+            .post '/user/2'
+            .send
+              age : 28
+            .expect 200
+            .expect
+              name : 'Joff'
+              age  : 28
+              _id  : 2
+            .end done
 
 
     describe 'DELETE', ->
       describe 'DELETE /:model/:id', ->
-        it 'should respond with JSON for the destroyed record'
-        it 'should delete the record with specified id'
+        it 'should respond with JSON for the destroyed record', (done) ->
+          request
+            .del '/user/2'
+            .expect 200
+            .expect
+              name : 'Joff'
+              age  : 27
+              _id  : 2
+            .end done
 
     describe 'PUT', ->
-      describe 'PUT /:model', ->
-        it 'should respond with JSON for the created record'
-        it 'should create a new record'
+      describe.skip 'PUT /:model', ->
+        it 'should respond with JSON for the created record', (done) ->
+          request
+            .put '/user'
+            .send
+              name : 'John'
+              age  : 26
+              _id  : 5
+            .expect 201
+            .expect
+              name : 'John'
+              age  : 26
+              _id  : 5
+            .end done
 
-      describe 'PUT /:model/:id', ->
-        it 'should return JSON for the updated record'
-        it 'should replace the record with specified id'
 
-    describe 'PATCH', ->
+      describe.skip 'PUT /:model/:id', ->
+        it 'should return JSON for the replaced record', (done) ->
+          request
+            .put 'user/2'
+            .send
+              name : 'Joseph'
+              age  : 37
+              _id  : 2
+            .expect 200
+            .expect
+              name : 'Joseph'
+              age  : 37
+              _id  : 2
+            .end done
+
+    describe.skip 'PATCH', ->
       describe 'PATCH /:model/:id', ->
-        it 'should respond with JSON for the updated record'
-        it 'should update the record with specified id'
+        it 'should respond with JSON for the updated record', (done) ->
+          request
+            .patch 'user/2'
+            .send
+              age : 28
+            .expect 200
+            .expect
+              name : 'Joff'
+              age  : 28
+              _id  : 2
+            .end done
