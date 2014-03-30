@@ -1,14 +1,4 @@
 # TOC
-   - [Actions](#actions)
-     - [findAll()](#actions-findall)
-     - [findById(id)](#actions-findbyidid)
-     - [deleteById(id)](#actions-deletebyidid)
-     - [replaceById(id)](#actions-replacebyidid)
-     - [replaceByIdWithQuery(id)](#actions-replacebyidwithqueryid)
-     - [updateById(id)](#actions-updatebyidid)
-     - [updateByIdWithQuery(id)](#actions-updatebyidwithqueryid)
-     - [create](#actions-create)
-     - [createWithQuery](#actions-createwithquery)
    - [REST API](#rest-api)
      - [Routes](#rest-api-routes)
        - [GET](#rest-api-routes-get)
@@ -28,26 +18,6 @@
      - [createModel(schema, mongoURL)](#model-createmodelschema-mongourl)
 <a name=""></a>
  
-<a name="actions"></a>
-# Actions
-<a name="actions-findall"></a>
-## findAll()
-<a name="actions-findbyidid"></a>
-## findById(id)
-<a name="actions-deletebyidid"></a>
-## deleteById(id)
-<a name="actions-replacebyidid"></a>
-## replaceById(id)
-<a name="actions-replacebyidwithqueryid"></a>
-## replaceByIdWithQuery(id)
-<a name="actions-updatebyidid"></a>
-## updateById(id)
-<a name="actions-updatebyidwithqueryid"></a>
-## updateByIdWithQuery(id)
-<a name="actions-create"></a>
-## create
-<a name="actions-createwithquery"></a>
-## createWithQuery
 <a name="rest-api"></a>
 # REST API
 <a name="rest-api-routes"></a>
