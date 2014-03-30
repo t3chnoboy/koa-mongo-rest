@@ -147,3 +147,6 @@ describe 'REST API', ->
               age  : 28
               _id  : 2
             .end done
+
+  after (done) ->
+    model.db.close(done)
