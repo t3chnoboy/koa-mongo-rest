@@ -94,21 +94,92 @@ return request.post('/user').send({
 
 <a name="rest-api-routes-post-post-modelid"></a>
 #### POST /:model/:id
+should respond with JSON for the updated record.
+
+```js
+return request.post('/user/2').send({
+  age: 28
+}).expect(200).expect({
+  name: 'Joff',
+  age: 28,
+  _id: 2
+}).end(done);
+```
+
 <a name="rest-api-routes-delete"></a>
 ### DELETE
 <a name="rest-api-routes-delete-delete-modelid"></a>
 #### DELETE /:model/:id
+should respond with JSON for the destroyed record.
+
+```js
+return request.del('/user/2').expect(200).expect({
+  name: 'Joff',
+  age: 27,
+  _id: 2
+}).end(done);
+```
+
 <a name="rest-api-routes-put"></a>
 ### PUT
 <a name="rest-api-routes-put-put-model"></a>
 #### PUT /:model
+should respond with JSON for the created record.
+
+```js
+return request.put('/user').send({
+  name: 'John',
+  age: 26,
+  _id: 5
+}).expect(201).expect({
+  name: 'John',
+  age: 26,
+  _id: 5
+}).end(done);
+```
+
 <a name="rest-api-routes-put-put-modelid"></a>
 #### PUT /:model/:id
+should return JSON for the replaced record.
+
+```js
+return request.put('/user/2').send({
+  name: 'Joseph',
+  age: 37
+}).expect(200).expect({
+  name: 'Joseph',
+  age: 37,
+  _id: 2
+}).end(done);
+```
+
 <a name="rest-api-routes-patch"></a>
 ### PATCH
 <a name="rest-api-routes-patch-patch-modelid"></a>
 #### PATCH /:model/:id
+should respond with JSON for the updated record.
+
+```js
+return request.patch('/user/2').send({
+  age: 28
+}).expect(200).expect({
+  name: 'Joff',
+  age: 28,
+  _id: 2
+}).end(done);
+```
+
 <a name="model"></a>
 # Model
 <a name="model-createmodelschema-mongourl"></a>
 ## createModel(schema, mongoURL)
+should connect to mongoDB and return a mongoose model.
+
+```js
+var model;
+model = createModel(schema, mongoUrl);
+return model.should.have.property({
+  modelName: 'person'
+});
+```
+
