@@ -14,8 +14,6 @@
          - [PUT /:model/:id](#rest-api-routes-put-put-modelid)
        - [PATCH](#rest-api-routes-patch)
          - [PATCH /:model/:id](#rest-api-routes-patch-patch-modelid)
-   - [Model](#model)
-     - [createModel(schema, mongoURL)](#model-createmodelschema-mongourl)
 <a name=""></a>
  
 <a name="rest-api"></a>
@@ -137,19 +135,5 @@ return request.patch('/user/2').send({
   age: 28,
   _id: 2
 }).end(done);
-```
-
-<a name="model"></a>
-# Model
-<a name="model-createmodelschema-mongourl"></a>
-## createModel(schema, mongoURL)
-should connect to mongoDB and return a mongoose model.
-
-```js
-var model;
-model = createModel(schema, mongoUrl);
-return model.should.have.property({
-  modelName: 'person'
-});
 ```
 
