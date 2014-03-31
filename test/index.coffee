@@ -1,11 +1,6 @@
-schema =
-  schema:
-    name: String
-    age : Number
-    _id : Number
-  collectionName: 'user'
-  options:
-    versionKey: no
+server = require './server'
+model = server.model
+request = require('supertest').agent server.listen()
 
 users = [
   name: 'Fronk'
@@ -20,11 +15,6 @@ users = [
   age : 54
   _id : 3
 ]
-
-server = require('./server') schema
-model = server.model
-request = require('supertest').agent server.listen()
-
 
 describe 'REST API', ->
 

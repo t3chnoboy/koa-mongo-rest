@@ -14,30 +14,27 @@ npm install koa-mongo-rest
 
 ## Usage
 
-###Basic usage
-
 Require library
 ```javascript
-var createModel = require('koa-mongo-rest');
+generateApi = require('koa-mongo-rest');
 ```
 
-Create schema
+Create mongoose model
 ```javascript
-var schema = {
-  schema: {
-    email: String,
-    name: String,
-    password: String,
-    address: String,
-    zipcode: Number,
-    lists: Array
-  },
-  collectionName: 'user', //this is required
-  //mongoose schema options (optional)
-  options: {
-    versionKey: false
-  }
-};
+mongoUrl = '127.0.0.1:27017';
+mongoose = require('mongoose');
+mongoose.connect(mongoUrl);
+
+schema = new mongoose.Schema({
+  email: String,
+  name: String,
+  password: String,
+  address: String,
+  zipcode: Number,
+  lists: Array
+});
+
+model = mongoose.model('user', schema);
 ```
 
 Create server
@@ -45,19 +42,14 @@ Create server
 var koa = require('koa');
 var router = require('koa-router');
 
-var mongoUrl = '127.0.0.1:27017'
-
 var app = koa();
 
 //router is required
 app.use(router(app));
 
-//create mongoose model
-//you can use it to create custom actions
-var model = app.model = createModel(schema, mongoUrl);
 
 //add REST routes to your app. Prefix is optional
-model.generateApi(app, '/api');
+generateApi(app, model, '/api');
 
 app.listen(process.env.PORT || 5000);
 ```

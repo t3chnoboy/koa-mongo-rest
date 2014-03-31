@@ -1,16 +1,16 @@
-module.exports = generateRoutes = (app, schema, actions, prefix = '') ->
+module.exports = generateRoutes = (app, modelName, actions, prefix = '') ->
 
-  app.get    prefix + "/#{schema.collectionName}",              actions.findAll
-  app.get    prefix + "/#{schema.collectionName}/:id",          actions.findById
+  app.get    prefix + "/#{modelName}",              actions.findAll
+  app.get    prefix + "/#{modelName}/:id",          actions.findById
 
-  app.post   prefix + "/#{schema.collectionName}",              actions.create
-  app.post   prefix + "/#{schema.collectionName}/:id",          actions.updateById
+  app.post   prefix + "/#{modelName}",              actions.create
+  app.post   prefix + "/#{modelName}/:id",          actions.updateById
 
-  app.del    prefix + "/#{schema.collectionName}/:id",          actions.deleteById
+  app.del    prefix + "/#{modelName}/:id",          actions.deleteById
 
-  app.put    prefix + "/#{schema.collectionName}",              actions.create
-  app.put    prefix + "/#{schema.collectionName}/:id",          actions.replaceById
+  app.put    prefix + "/#{modelName}",              actions.create
+  app.put    prefix + "/#{modelName}/:id",          actions.replaceById
 
-  app.patch  prefix + "/#{schema.collectionName}/:id",          actions.updateById
+  app.patch  prefix + "/#{modelName}/:id",          actions.updateById
 
   return

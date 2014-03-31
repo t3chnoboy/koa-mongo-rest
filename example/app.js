@@ -1,25 +1,24 @@
-var app, createModel, koa, logger, model, mongoUrl, router, schema;
-
 koa = require('koa');
-
 router = require('koa-router');
-
-logger = require('koa-logger');
-
-createModel = require('../lib/index');
-
-schema = require('./schema');
+generateApi = require('../lib/index');
 
 mongoUrl = '127.0.0.1:27017';
+mongoose = require('mongoose');
+mongoose.connect(mongoUrl);
+
+schema = new mongoose.Schema({
+  email: String,
+  name: String,
+  password: String,
+  address: String,
+  zipcode: Number,
+  lists: Array
+});
 
 app = koa();
-
-app.use(logger());
-
 app.use(router(app));
 
-model = createModel(schema, mongoUrl);
-
-model.generateApi(app);
+model = mongoose.model('user', schema);
+generateApi(app, model, '/api');
 
 app.listen(process.env.PORT || 5000);

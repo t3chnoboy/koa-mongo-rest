@@ -1,13 +1,7 @@
 generateRoutes = require './routes'
 generateActions = require './actions'
-createModel = require './model'
 
-
-module.exports = (schema, mongoUrl) ->
-  model = createModel schema, mongoUrl
+module.exports = generateApi = (app, model, prefix = '') ->
   actions = generateActions model
-  model.generateApi = (app, prefix = '') ->
-    generateRoutes app, schema, actions, prefix
-
-  return model
-
+  generateRoutes app, model.modelName, actions, prefix
+  return
