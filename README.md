@@ -1,4 +1,4 @@
-# Koa mongo REST [![NPM version](https://badge.fury.io/js/koa-mongo-rest.png)](http://badge.fury.io/js/koa-mongo-rest) [![Dependency Status](https://gemnasium.com/t3chnoboy/koa-mongo-rest.png)](https://gemnasium.com/t3chnoboy/koa-mongo-rest) [![Build Status](https://travis-ci.org/t3chnoboy/koa-mongo-rest.png?branch=master)](https://travis-ci.org/t3chnoboy/koa-mongo-rest)
+# Koa mongo REST [![NPM version](https://badge.fury.io/js/koa-mongo-rest.svg)](http://badge.fury.io/js/koa-mongo-rest) [![Dependency Status](https://gemnasium.com/t3chnoboy/koa-mongo-rest.svg)](https://gemnasium.com/t3chnoboy/koa-mongo-rest) [![Build Status](https://travis-ci.org/t3chnoboy/koa-mongo-rest.svg?branch=master)](https://travis-ci.org/t3chnoboy/koa-mongo-rest)
 
 Easy REST api for [koa](http://koajs.com) server  
 
