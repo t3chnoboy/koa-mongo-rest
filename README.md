@@ -34,7 +34,7 @@ schema = new mongoose.Schema({
   lists: Array
 });
 
-model = mongoose.model('user', schema);
+model = mongoose.model('users', schema);
 ```
 
 Create server
@@ -53,3 +53,13 @@ generateApi(app, model, '/api');
 
 app.listen(process.env.PORT || 5000);
 ```
+
+Following REST API is now created for you:
+
+| HTTP Verb     | /users   | /users/:id |
+| ------------- | ------------- | --------------- |
+| GET           | Get all documents, or documents that match the query. <br> You can use [mongoose find conditions] (http://mongoosejs.com/docs/queries.html), limit, skip and sort. <br> For example: <br> **/api/users?conditions={"name":"john"}&limit=10&skip=1&sort=-zipcode** | Get the addressed document. |
+| POST          | Create a new document and send it back. |  Update the addressed document with specified attributes. |
+| PUT           | Create a new document and send it back. | Replace the addressed document. |
+| DELETE        | n/a | Delete the addressed document. |
+| PATCH         | n/a | Update the addressed document with specified attributes. |
