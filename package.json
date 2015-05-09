@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/t3chnoboy/koa-mongo-rest",
   "dependencies": {
-    "co-body": "0.0.1",
-    "mongoose": "^3.8.8"
+    "co-body": "^2.0.0",
+    "mongoose": "^4.0.2"
   },
   "devDependencies": {
     "co-mocha": "0.0.2",
