@@ -32,7 +32,7 @@ describe 'REST API', ->
       describe 'GET /:model', ->
         it 'should respond with JSON for all records', (done) ->
           request
-            .get '/user'
+            .get '/users'
             .expect 200
             .expect 'Content-Type', /json/
             .expect users
@@ -41,7 +41,7 @@ describe 'REST API', ->
       describe 'GET /:model/:id', ->
         it 'should respond with JSON for the record with the specified id', (done) ->
           request
-            .get '/user/2'
+            .get '/users/2'
             .expect 200
             .expect 'Content-Type', /json/
             .expect
@@ -55,7 +55,7 @@ describe 'REST API', ->
       describe 'POST /:model', ->
         it 'should respond with JSON for the created record', (done) ->
           request
-            .post '/user'
+            .post '/users'
             .send
               name : 'James'
               age  :  40
@@ -70,7 +70,7 @@ describe 'REST API', ->
       describe 'POST /:model/:id', ->
         it 'should respond with JSON for the updated record', (done) ->
           request
-            .post '/user/2'
+            .post '/users/2'
             .send
               age : 28
             .expect 200
@@ -86,7 +86,7 @@ describe 'REST API', ->
       describe 'DELETE /:model/:id', ->
         it 'should respond with JSON for the destroyed record', (done) ->
           request
-            .del '/user/2'
+            .del '/users/2'
             .expect 200
             .expect
               name : 'Joff'
@@ -99,7 +99,7 @@ describe 'REST API', ->
       describe 'PUT /:model', ->
         it 'should respond with JSON for the created record', (done) ->
           request
-            .put '/user'
+            .put '/users'
             .send
               name : 'John'
               age  : 26
@@ -115,7 +115,7 @@ describe 'REST API', ->
       describe 'PUT /:model/:id', ->
         it 'should return JSON for the replaced record', (done) ->
           request
-            .put '/user/2'
+            .put '/users/2'
             .send
               name : 'Joseph'
               age  : 37
@@ -131,7 +131,7 @@ describe 'REST API', ->
       describe 'PATCH /:model/:id', ->
         it 'should respond with JSON for the updated record', (done) ->
           request
-            .patch '/user/2'
+            .patch '/users/2'
             .send
               age : 28
             .expect 200
